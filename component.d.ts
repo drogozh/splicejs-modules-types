@@ -1,5 +1,6 @@
 import {Element} from './view';
 export class ComponentBase {
+    constructor(parent:ComponentBase,args?:any);
     node:HTMLElement;
     getElement(name:string): Element;
     getComponent<T>(name:string): T;
@@ -7,8 +8,11 @@ export class ComponentBase {
     reflow(x?:number,y?:number,w?:number,h?:number,b?:boolean);
 }
 
-
-export function ComponentFactory(require:any,scope:any) : any;
 export interface Component<T extends ComponentBase> {
     new(): T;
+}
+
+export class ComponentFactory {
+    constructor(require:any, scope:any);
+    define<T extends ComponentBase>(templateName:string, viewModel:new(parent:ComponentBase,args?:any)=>ComponentBase): Component<T>;
 }

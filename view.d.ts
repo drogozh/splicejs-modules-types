@@ -2,8 +2,7 @@ import {Event, Subscription} from './events';
 
 export class Element {
     constructor(eleemnt:HTMLElement);
-    htmlElement: HTMLElement;
-    node:any;
+    node:HTMLElement;
     show():void;
     hide():void;
     addClass(className:string): Element;
