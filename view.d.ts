@@ -2,12 +2,13 @@ import {Event, Subscription} from './events';
 
 export class Element {
     constructor(eleemnt:HTMLElement);
+    htmlElement: HTMLElement;
     node:any;
     show():void;
     hide():void;
     addClass(className:string): Element;
     removeClass(className:string): Element;
-    getParent(elementName:string, className:string);
+    getParent(elementName:string, className?:string);
 }
 
 type ElementEventArgs = {
